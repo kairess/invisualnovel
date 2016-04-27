@@ -14,7 +14,9 @@ module.exports.callSystem = function(msg) {
 		}
 	};
 
-	switch(msg.text.toLowerCase()) {
+	var splitMsg = msg.text.split(' ');
+
+	switch(splitMsg[0].toLowerCase()) {
 		case "/도움말":
 		case "/help":
 			responseMsg = '```선택하세요```';
@@ -59,6 +61,7 @@ module.exports.callSystem = function(msg) {
 
 		case "/로드":
 		case "/load":
+			editData(msg, {stage: splitMsg[1], part: splitMsg[2]});
 			startPart(msg);
 			break;
 
