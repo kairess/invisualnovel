@@ -1,7 +1,7 @@
 module.exports.beforeTasks = [
 	{
 		type: 'sendMessage',
-		message: '어라? 이제 되는건가?',
+		message: '다짜고짜 욕질이야',
 		options: {
 			reply_markup: {
 				hide_keyboard: true
@@ -11,14 +11,13 @@ module.exports.beforeTasks = [
 	},
 	{
 		type: 'waitAnswer',
-		message: '이런 똥폰같으니라고...',
+		message: '넌 누구냐?',
 		options: {
 			parse_mode: 'Markdown',
 			reply_markup: {
 				keyboard: [
-					[{text: '1. ?'}],
-					[{text: '2. 누구세요?'}],
-					[{text: '3. 꺼져'}]
+					[{text: '1. 이름을 말한다'}],
+					[{text: '2. 그러는 넌 누구냐'}],
 				],
 				one_time_keyboard: true
 			}
@@ -30,14 +29,10 @@ module.exports.beforeTasks = [
 module.exports.afterTasks = [
 	{
 		nextStage: 1,
-		nextPart: 3,
+		nextPart: 5,
 	},
 	{
 		nextStage: 1,
 		nextPart: 3,
-	},
-	{
-		nextStage: 1,
-		nextPart: 4,
 	}
 ];

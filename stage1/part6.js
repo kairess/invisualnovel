@@ -1,24 +1,30 @@
+/*
+파트6
+잠깐만... 누가와가지고
+(10초 대기)
+[남편, 아내]가 왔네
+*/
+
 module.exports.beforeTasks = [
 	{
 		type: 'sendMessage',
-		message: '어라? 이제 되는건가?',
+		message: '잠깐만... 누가와가지고',
 		options: {
 			reply_markup: {
 				hide_keyboard: true
 			}
 		},
-		delay: 0
+		delay: 10
 	},
 	{
 		type: 'waitAnswer',
-		message: '이런 똥폰같으니라고...',
+		message: '{{wife_gender}} 왔네',
 		options: {
 			parse_mode: 'Markdown',
 			reply_markup: {
 				keyboard: [
-					[{text: '1. ?'}],
-					[{text: '2. 누구세요?'}],
-					[{text: '3. 꺼져'}]
+					[{text: '1. 아니 너 결혼했냐?'}],
+					[{text: '2. ㅎㅎㅎㅎㅎ'}],
 				],
 				one_time_keyboard: true
 			}
@@ -30,14 +36,10 @@ module.exports.beforeTasks = [
 module.exports.afterTasks = [
 	{
 		nextStage: 1,
-		nextPart: 3,
+		nextPart: 6,
 	},
 	{
 		nextStage: 1,
-		nextPart: 3,
-	},
-	{
-		nextStage: 1,
-		nextPart: 4,
+		nextPart: 6,
 	}
 ];

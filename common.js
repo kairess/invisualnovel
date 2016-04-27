@@ -57,6 +57,11 @@ module.exports.callSystem = function(msg) {
 			saveData();
 			break;
 
+		case "/로드":
+		case "/load":
+			startPart(msg);
+			break;
+
 		case "photo":
 			responseMsg = 'Photo';
 			telegramBot.sendPhoto(msg.chat.id, 'wallhaven-6686.jpg')
@@ -71,7 +76,7 @@ module.exports.callSystem = function(msg) {
 			if(savedData[msg.from.id] && savedData[msg.from.id].hasOwnProperty('waiting_answer') && savedData[msg.from.id].waiting_answer) {
 				checkAnswer(msg);
 			} else {
-				responseMsg = 'I don\'t know. What you\'re saying.';
+				responseMsg = '지금은 대답할 수 없어요. 기다려주시면 연락드리겠습니다.';
 				telegramBot.sendMessage(msg.chat.id, responseMsg);
 			}
 	}
@@ -122,6 +127,15 @@ var checkAnswer = function(msg) {
 		return false;
 	}
 
+	// save user gender
+	if(thisPart.afterTasks[answerNumber].hasOwnProperty('type')) {
+		if(thisPart.afterTasks[answerNumber].type == 'selectGender') {
+			var gender = (parseInt(msg.text.substring(0, 1))==1)?'male':'female';
+
+			editData(msg, {'gender': gender});
+		}
+	}
+
 	// Right answer
 	editData(msg, {
 		'stage': thisPart.afterTasks[answerNumber].nextStage,
@@ -138,5 +152,6 @@ var checkAnswer = function(msg) {
 // runner error
 runner.onError(function(err) {
 	runner.stop(); // stop further queued function from being run
+	sendTelegram("There was an error on runner: "+err);
 	console.log("There was an error on runner", err);
 });

@@ -1,17 +1,7 @@
 module.exports.beforeTasks = [
 	{
 		type: 'sendMessage',
-		message: '(지지직... 지지직...)',
-		options: {
-			reply_markup: {
-				hide_keyboard: true
-			}
-		},
-		delay: 1
-	},
-	{
-		type: 'sendMessage',
-		message: '밤밣따빠밣밟따뿌',
+		message: '아 나는 {{username}}',
 		options: {
 			reply_markup: {
 				hide_keyboard: true
@@ -21,23 +11,32 @@ module.exports.beforeTasks = [
 	},
 	{
 		type: 'sendMessage',
-		message: '빠맣파빨받밤뚜뭏',
+		message: '근데 이 똥폰이',
 		options: {
 			reply_markup: {
 				hide_keyboard: true
 			}
 		},
-		delay: 2
+		delay: 0
+	},
+	{
+		type: 'sendMessage',
+		message: '용케도 되네?',
+		options: {
+			reply_markup: {
+				hide_keyboard: true
+			}
+		},
+		delay: 0
 	},
 	{
 		type: 'waitAnswer',
-		message: '아ㅏㅏㅏㅏㅏㅏㅏ',
+		message: '10년전에 쓰던건데',
 		options: {
 			parse_mode: 'Markdown',
 			reply_markup: {
 				keyboard: [
-					[{text: '1. 뭐야'}],
-					[{text: '2. 누구세요?'}]
+					[{text: '1. 오 나랑 이름이 같네?'}]
 				],
 				one_time_keyboard: true
 			}
@@ -49,10 +48,6 @@ module.exports.beforeTasks = [
 module.exports.afterTasks = [
 	{
 		nextStage: 1,
-		nextPart: 2
-	},
-	{
-		nextStage: 1,
-		nextPart: 2
+		nextPart: 5,
 	}
 ];
