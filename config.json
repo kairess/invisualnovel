@@ -1,8 +1,7 @@
 {
 	"telegram": {
-		"token": "201328750:AAH-_rWNhXAHtkei_SDt7n3KP5E_JGTou-k",
+		"token": "your-api-token",
 		"receivers": [
-			"166362247"
 		]
 	}
 }
