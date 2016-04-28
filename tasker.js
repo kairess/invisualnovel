@@ -74,7 +74,6 @@ var replaceMustaches = function(task) {
 				task.message.text = task.message.text.replace(x, task.msg.from.first_name);
 				break;
 			case 'wife_gender':
-				console.log(savedData[task.msg.from.id]);
 				var wifeGender = (savedData[task.msg.from.id].gender=='male')?'아내가':'남편이';
 				task.message.text = task.message.text.replace(x, wifeGender);
 				break;
