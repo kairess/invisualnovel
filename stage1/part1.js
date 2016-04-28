@@ -1,37 +1,20 @@
 module.exports.beforeTasks = [
 	{
-		type: 'sendMessage',
-		message: '(지지직... 지지직...)',
+		type: 'sendMessages',
+		message: [
+			{text: '(지지직... 지지직...)', delay: 1},
+			{text: '밤밣따빠밣밟따뿌', delay: 0},
+			{text: '빠맣파빨받밤뚜뭏', delay: 2},
+		],
 		options: {
 			reply_markup: {
 				hide_keyboard: true
 			}
-		},
-		delay: 1
-	},
-	{
-		type: 'sendMessage',
-		message: '밤밣따빠밣밟따뿌',
-		options: {
-			reply_markup: {
-				hide_keyboard: true
-			}
-		},
-		delay: 0
-	},
-	{
-		type: 'sendMessage',
-		message: '빠맣파빨받밤뚜뭏',
-		options: {
-			reply_markup: {
-				hide_keyboard: true
-			}
-		},
-		delay: 2
+		}
 	},
 	{
 		type: 'waitAnswer',
-		message: '아ㅏㅏㅏㅏㅏㅏㅏ',
+		message: {text: '아ㅏㅏㅏㅏㅏㅏㅏ'},
 		options: {
 			parse_mode: 'Markdown',
 			reply_markup: {
@@ -41,8 +24,7 @@ module.exports.beforeTasks = [
 				],
 				one_time_keyboard: true
 			}
-		},
-		delay: 0
+		}
 	}
 ];
 

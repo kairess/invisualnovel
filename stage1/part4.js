@@ -1,17 +1,18 @@
 module.exports.beforeTasks = [
 	{
-		type: 'sendMessage',
-		message: '다짜고짜 욕질이야',
+		type: 'sendMessages',
+		message: [
+			{text: '다짜고짜 욕질이야', delay: 0}
+		],
 		options: {
 			reply_markup: {
 				hide_keyboard: true
 			}
-		},
-		delay: 0
+		}
 	},
 	{
 		type: 'waitAnswer',
-		message: '넌 누구냐?',
+		message: {text: '넌 누구냐?'},
 		options: {
 			parse_mode: 'Markdown',
 			reply_markup: {
@@ -21,8 +22,7 @@ module.exports.beforeTasks = [
 				],
 				one_time_keyboard: true
 			}
-		},
-		delay: 0
+		}
 	}
 ];
 

@@ -7,18 +7,19 @@
 
 module.exports.beforeTasks = [
 	{
-		type: 'sendMessage',
-		message: '잠깐만... 누가와가지고',
+		type: 'sendMessages',
+		message: [
+			{text: '잠깐만... 누가와가지고', delay: 2}
+		],
 		options: {
 			reply_markup: {
 				hide_keyboard: true
 			}
-		},
-		delay: 10
+		}
 	},
 	{
 		type: 'waitAnswer',
-		message: '{{wife_gender}} 왔네',
+		message: {text: '{{wife_gender}} 왔네'},
 		options: {
 			parse_mode: 'Markdown',
 			reply_markup: {
@@ -28,8 +29,7 @@ module.exports.beforeTasks = [
 				],
 				one_time_keyboard: true
 			}
-		},
-		delay: 0
+		}
 	}
 ];
 

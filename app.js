@@ -7,6 +7,8 @@ var common = require('./common');
 
 var startTime = new Date().getTime() / 1000;
 
+global.development = true;
+
 // Global saved data
 global.savedData = require('./data/save.json');
 
@@ -19,6 +21,18 @@ global.editData = function(msg, obj) {
 	for(var key in obj) {
 		savedData[msg.from.id][key] = obj[key];
 	}
+
+	saveData();
+}
+
+global.resetData = function(msg) {
+	savedData[msg.from.id] = {
+		"user": msg.from,
+		"chat": msg.chat,
+		"started": true,
+		"stage": 1,
+		"part": 1
+	};
 
 	saveData();
 }

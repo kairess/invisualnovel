@@ -38,14 +38,7 @@ module.exports.callSystem = function(msg) {
 		case "/start":
 		case "/start start":
 			// reset data
-			editData(msg, {
-				"user": msg.from,
-				"chat": msg.chat,
-				"started": true,
-				"stage": 1,
-				"part": 1
-			});
-			saveData();
+			resetData(msg);
 
 			responseMsg = 'Started!'
 			telegramBot.sendMessage(msg.chat.id, responseMsg, responseOpt).then(function() {

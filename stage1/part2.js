@@ -1,17 +1,18 @@
 module.exports.beforeTasks = [
 	{
-		type: 'sendMessage',
-		message: '어라? 이제 되는건가?',
+		type: 'sendMessages',
+		message: [
+			{text: '어라? 이제 되는건가?', delay: 0},
+		],
 		options: {
 			reply_markup: {
 				hide_keyboard: true
 			}
-		},
-		delay: 0
+		}
 	},
 	{
 		type: 'waitAnswer',
-		message: '이런 똥폰같으니라고...',
+		message: {text: '이런 똥폰같으니라고...'},
 		options: {
 			parse_mode: 'Markdown',
 			reply_markup: {

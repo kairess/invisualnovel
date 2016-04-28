@@ -1,47 +1,21 @@
 module.exports.beforeTasks = [
 	{
-		type: 'sendMessage',
-		message: '오',
+		type: 'sendMessages',
+		message: [
+			{text: '오', delay: 0},
+			{text: '나랑 이름이같다니', delay: 0},
+			{text: '신기하군그래', delay: 0.5},
+			{text: '근데 설마 너', delay: 3}
+		],
 		options: {
 			reply_markup: {
 				hide_keyboard: true
 			}
-		},
-		delay: 0
-	},
-	{
-		type: 'sendMessage',
-		message: '나랑 이름이같다니',
-		options: {
-			reply_markup: {
-				hide_keyboard: true
-			}
-		},
-		delay: 0
-	},
-	{
-		type: 'sendMessage',
-		message: '신기하군그래',
-		options: {
-			reply_markup: {
-				hide_keyboard: true
-			}
-		},
-		delay: 2
-	},
-	{
-		type: 'sendMessage',
-		message: '근데 설마 너',
-		options: {
-			reply_markup: {
-				hide_keyboard: true
-			}
-		},
-		delay: 0.5
+		}
 	},
 	{
 		type: 'waitAnswer',
-		message: '여자니?',
+		message: {text: '여자니?'},
 		options: {
 			parse_mode: 'Markdown',
 			reply_markup: {
@@ -51,8 +25,7 @@ module.exports.beforeTasks = [
 				],
 				one_time_keyboard: true
 			}
-		},
-		delay: 0
+		}
 	}
 ];
 
